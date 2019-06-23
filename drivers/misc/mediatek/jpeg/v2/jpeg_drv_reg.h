@@ -80,7 +80,7 @@
 
 
 /* #define REG_JPEG_ENC_DST_ADDR0                      *(volatile kal_uint32 *)(JPEG_ENC_BASE + 0x120)  */
-/* #define REG_JPEG_ENC_DMA_ADDR0                      *(volatile kal_uint32 *)(JPEG_ENC_BASE + 0x124)  */
+/* #define REG_JPEG_ENC_DMA_ADDR0                      *ШХ"!Ф!Ђl_uint32 *)(JPEG_ENC_BASE + 0x124)  */
 /* #define REG_JPEG_ENC_STALL_ADDR0                    *(volatile kal_uint32 *)(JPEG_ENC_BASE + 0x128)  */
 /*                                                                                                      */
 /* #define REG_JPEG_ENC_OFFSET_ADDR                    *(volatile kal_uint32 *)(JPEG_ENC_BASE + 0x138)  */
