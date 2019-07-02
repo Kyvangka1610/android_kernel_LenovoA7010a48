@@ -57,6 +57,10 @@
 #include <mach/diso.h>
 #endif
 
+#ifdef CONFIG_FORCE_FAST_CHARGE
+#include <linux/fastcharge.h>
+#endif
+
 
 /* ============================================================ // */
 /* define */
@@ -1129,8 +1133,17 @@ void select_charging_current(void)
 			}
 #else
 			{
-				g_temp_input_CC_value = batt_cust_data.usb_charger_current;
-				g_temp_CC_value = batt_cust_data.usb_charger_current;
+#ifdef CONFIG_FORCE_FAST_CHARGE
+				if (force_fast_charge) {
+					g_temp_input_CC_value = CHARGE_CURRENT_1000_00_MA;
+					g_temp_CC_value = CHARGE_CURRENT_1000_00_MA;
+				} else {
+#endif
+					g_temp_input_CC_value = batt_cust_data.usb_charger_current;
+					g_temp_CC_value = batt_cust_data.usb_charger_current;
+#ifdef CONFIG_FORCE_FAST_CHARGE
+				}
+#endif
 			}
 #endif
 		} else if (BMT_status.charger_type == NONSTANDARD_CHARGER) {

@@ -374,7 +374,6 @@ static DEFINE_SPINLOCK(pmic_wrap_lock);
 		flags = (unsigned long)&flags; \
 		mutex_lock(&pmic_wrap_mutex); \
 	} while (0)
-
 #define pmic_wrap_unlock(flags) \
 	do { \
 		/* to fix compile warning */  \
