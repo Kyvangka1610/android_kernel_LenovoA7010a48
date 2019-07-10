@@ -878,11 +878,6 @@ s32 mt_set_pwm_valid ( u32 pwm_no, u32 buf_valid_bit )   //set 0  for BUF0 bit o
 		return -EEXCESSPWMNO;
 	}
 
-	if ( !buf_valid_bit>= BUF_EN_MAX) {
-		PWMDBG ( "inavlid bit\n" );
-		return -EPARMNOSUPPORT;
-	}
-
 	if ( (pwm_no <= PWM2)||(pwm_no == PWM6))
 		reg_valid = PWM_register[pwm_no] + 4 * PWM_VALID;
 	else
@@ -1542,11 +1537,6 @@ s32 mt_set_pwm_valid ( u32 pwm_no, u32 buf_valid_bit )   //set 0  for BUF0 bit o
 	if ( pwm_no >= PWM_MAX ) {
 		printk ( "pwm number excesses PWM_MAX\n" );
 		return -EEXCESSPWMNO;
-	}
-
-	if ( !buf_valid_bit>= BUF_EN_MAX) {
-		printk ( "inavlid bit \n" );
-		return -EPARMNOSUPPORT;
 	}
 
 	spin_lock_irqsave ( &dev->lock, flags );
